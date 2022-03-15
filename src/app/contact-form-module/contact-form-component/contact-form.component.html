@@ -1,0 +1,41 @@
+<div class="center">
+    <mat-card class="form-card">
+        <mat-card-content>
+            <form [formGroup]="movieForm" (ngSubmit)="submit()">
+                <mat-form-field appearance="fill">
+                    <mat-label>Nombre</mat-label>
+                    <input matInput placeholder="" type="text" formControlName="nombre">
+                </mat-form-field>
+                
+                <mat-form-field appearance="fill">
+                    <mat-label>Correo</mat-label>
+                    <input matInput placeholder="" type="text" formControlName="correo">
+                </mat-form-field>
+                
+                <mat-form-field appearance="fill">
+                    <mat-label>Teléfono</mat-label>
+                    <input matInput placeholder="" type="tel" formControlName="telefono">
+                </mat-form-field>
+                
+                <mat-form-field appearance="fill">
+                    <mat-label>Mensaje</mat-label>
+                    <input matInput placeholder="" type="text" formControlName="mensaje">
+                </mat-form-field>
+                
+
+                <button mat-raised-button type="submit" [disabled]="!movieForm.valid" color="primary">Add movie</button>
+
+                <ng-container *ngIf="formFlag">
+                    <p>Formulario enviado!</p>
+                    <br>
+                </ng-container>
+                <ng-container *ngIf="movieForm.valid">
+                    <p>Formulario válido</p>
+                </ng-container>
+                <ng-container *ngIf="!movieForm.valid">
+                    <p><b> Formulario invalido</b></p>
+                </ng-container>
+            </form>
+        </mat-card-content>
+    </mat-card>
+</div>
